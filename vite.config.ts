@@ -8,7 +8,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? '/LiftLedger/' : '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
