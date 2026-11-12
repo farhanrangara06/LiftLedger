@@ -1,22 +1,16 @@
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const DEFAULT_SUPABASE_URL = 'https://sbxsgunpmcjpkwhbzazn.supabase.co';
+const DEFAULT_SUPABASE_ANON_KEY =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNieHNndW5wbWNqcGt3aGJ6YXpuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTQyMDI5MjMsImV4cCI6MjEwOTc3ODkyM30._YOnZjY04o-tlOwGg7pyU5O5RC_KtCxG4VwpYSm9MdI';
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  console.error(
-    'LiftLedger: Supabase environment variables are missing! Please check your .env.local file for VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY.'
-  );
-}
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || DEFAULT_SUPABASE_URL;
+const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY || DEFAULT_SUPABASE_ANON_KEY;
 
-export const supabase = createClient(
-  supabaseUrl || 'https://placeholder.supabase.co',
-  supabaseAnonKey || 'placeholder-anon-key',
-  {
-    auth: {
-      persistSession: true,
-      autoRefreshToken: true,
-      detectSessionInUrl: true,
-    },
-  }
-);
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    persistSession: true,
+    autoRefreshToken: true,
+    detectSessionInUrl: true,
+  },
+});
