@@ -65,9 +65,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ onCloseMobile }) => {
     <aside className="w-64 bg-slate-950 text-slate-300 flex flex-col h-full border-r border-slate-800 select-none">
       {/* Brand Header */}
       <div className="h-16 px-6 flex items-center gap-3 border-b border-slate-800/80 bg-slate-900/50">
-        <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-blue-500/20">
-          <Truck className="w-5 h-5 text-white" />
-        </div>
+        <img
+          src="/liftledger-logo.jpg"
+          alt="LiftLedger Logo"
+          className="w-9 h-9 rounded-xl object-cover shadow-md shadow-blue-500/20 border border-slate-700"
+        />
         <div>
           <span className="text-base font-extrabold tracking-tight text-white flex items-center gap-1.5">
             LIFT<span className="text-blue-500">LEDGER</span>

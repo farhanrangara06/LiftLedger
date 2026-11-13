@@ -34,9 +34,11 @@ export const SignInPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
-        <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-tr from-blue-600 to-indigo-500 text-white shadow-xl shadow-blue-500/20 mb-4">
-          <Truck className="w-8 h-8 text-white" />
-        </div>
+        <img
+          src="/liftledger-logo.jpg"
+          alt="LiftLedger Logo"
+          className="inline-block w-16 h-16 rounded-2xl object-cover shadow-xl shadow-blue-500/20 mb-4 border border-slate-700"
+        />
         <h2 className="text-3xl font-extrabold tracking-tight text-white">
           LIFT<span className="text-blue-500">LEDGER</span>
         </h2>
