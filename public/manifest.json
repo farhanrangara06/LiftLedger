@@ -1,0 +1,49 @@
+{
+  "id": "/",
+  "name": "LiftLedger — Boom Lift & Equipment Rental SaaS",
+  "short_name": "LiftLedger",
+  "description": "Enterprise Boom Lift & Aerial Work Platform Rental Management SaaS with GST Invoicing, Site Logsheets, Challans & Partnership Profit Split.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "categories": ["business", "finance", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/liftledger-logo.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/liftledger-logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Create GST Invoice",
+      "short_name": "GST Invoice",
+      "description": "Issue a new GST tax invoice",
+      "url": "/invoices",
+      "icons": [{ "src": "/favicon.svg", "sizes": "192x192", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Log Daily Shift / OT",
+      "short_name": "Site Logsheet",
+      "description": "Record daily machine working hours & overtime",
+      "url": "/logsheets",
+      "icons": [{ "src": "/favicon.svg", "sizes": "192x192", "type": "image/svg+xml" }]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, Bell, Plus, Calendar, AlertCircle } from 'lucide-react';
+import { Menu, Bell, Plus, Calendar, AlertCircle, Download } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { useAuth } from '@/context/AuthContext';
 import { supabase } from '@/lib/supabase';
@@ -17,6 +17,25 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileSidebar, title = 'Da
   const navigate = useNavigate();
   const [reminders, setReminders] = useState<Reminder[]>([]);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [installPrompt, setInstallPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallPwa = async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    if (outcome === 'accepted') {
+      setInstallPrompt(null);
+    }
+  };
 
   useEffect(() => {
     if (!company?.id) return;
@@ -53,6 +72,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenMobileSidebar, title = 'Da
 
       {/* Right: Actions, Notifications & User */}
       <div className="flex items-center gap-3">
+        {installPrompt && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={handleInstallPwa}
+            leftIcon={<Download className="w-3.5 h-3.5 text-blue-600" />}
+            className="border-blue-200 bg-blue-50/60 text-blue-700 hover:bg-blue-100"
+          >
+            Install App
+          </Button>
+        )}
+
         {/* Quick Action Button for Owner/Accountant */}
         {role !== 'EMPLOYEE' && (
           <div className="hidden sm:flex items-center gap-2">
